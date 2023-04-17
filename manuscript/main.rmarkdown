@@ -1,0 +1,106 @@
+---
+title: "Hierarchical Time Series Forecasting in Emergency Medical Services"
+# author:
+#   - name: Bahman Rostami-Tabar
+#     email: rostami-tabarb@cardiff.ac.uk
+#     affiliations:
+#         - id: carbs
+#           name: Cardiff University
+#           department: Cardiff Business School
+#           country: United Kingdom
+#           postal-code: CF10 3EU
+#     attributes:
+#         corresponding: true
+#   - name: Rob J. Hyndman
+#     email: Rob.Hyndman@monash.edu
+#     affiliations:
+#         - id: monash
+#           name: Monash University
+#           department: Department of Econometrics and Business Statistics
+#           country: Australia
+#           postal-code: VIC 3800
+abstract: |
+  Accurate forecasts of ambulance demand are crucial inputs when planning and deploying staff and fleet. Such demand forecasts are required at national, regional, and sub-regional levels, and must take account of the nature of incidents and their priorities. These forecasts are often generated independently by different teams within the organization. As a result, forecasts at different levels may be inconsistent, resulting in conflicting decisions and a lack of coherent coordination in the service. To address this issue, we exploit the hierarchical and grouped structure of the demand time series and apply forecast reconciliation methods to generate both point and probabilistic forecasts that are coherent and use all the available data at all levels of disaggregation. The methods are applied to daily incident data from an ambulance service in Great Britain, from October 2015 to July 2019, disaggregated by nature of incident, priority, managing health board, and control area. We use an ensemble of forecasting models and show that the resulting forecasts are better than any individual forecasting model. We validate the forecasting approach using time series cross validation.
+keywords:
+  - healthcare
+  - emergency services
+  - forecast reconciliation
+  - ambulance demand
+  - regression
+bibliography: bibliography.bib
+execute:
+  echo: false
+  message: false
+  warning: false
+  cache: true
+pdf-engine: pdflatex
+prefer-html: true
+format:
+  html:
+    number-sections: true
+  docx:
+    number-sections: true
+  elsevier-pdf:
+    keep-tex: true
+    include-in-header:
+      text: |
+        \usepackage{todonotes,mathtools,bm,amsmath,mathpazo}
+        \mathtoolsset{showonlyrefs}
+        \setlength{\parindent}{0cm}
+    journal:
+      name: Journal of Service Research
+      formatting: preprint
+      model: 3p
+      cite-style: authoryear
+---
+
+```{r}
+#| label: setup
+#| context: setup
+#| include: false
+library(fpp3)
+library(knitr)
+library(kableExtra)
+library(ggthemes)
+library(patchwork)
+# Color blind color palettes
+options(
+  ggplot2.discrete.colour = c("#D55E00", "#0072B2","#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442"),
+  ggplot2.discrete.fill = c("#D55E00", "#0072B2","#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442")
+)
+# Few theme
+ggplot2::theme_set(ggthemes::theme_few())
+```
+
+```{r intro, child="01-introduction.qmd"}
+
+```
+
+```{r literature, child="02-literature.qmd"}
+
+```
+
+```{r experiment, child="03-experiment.qmd"}
+
+```
+
+```{r htc, child="04-htsgts.qmd"}
+
+```
+
+```{r results, child="05-results.qmd"}
+
+```
+
+```{r conclusion, child="06-conclusion.qmd"}
+
+```
+
+
+# Reproducibility {.unnumbered}
+
+R code to produce all results in this paper is available at <https://github.com/bahmanrostamitabar/hierarchical_forecasting_EMS>
+
+
+# References {#references .unnumbered}
+
