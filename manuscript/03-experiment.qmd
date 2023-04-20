@@ -92,7 +92,8 @@ incident_gthf %>%
   features(incident, feat_stl) %>%
   ggplot(aes(x = trend_strength, y = seasonal_strength_week)) +
   geom_point(alpha = 0.25) +
-  labs(x = "Strength of trend", y = "Strength of weekly seasonality")
+  labs(x = "Strength of trend", y = "Strength of weekly seasonality")+
+  ggthemes::theme_few()
 ```
 
 In addition to displaying the trend and seasonality features, we also visualize few time series at various levels of the aggregation. @fig-dataviz2 reveals different information such as trend, seasonality, and noise. For example, some series depict seasonality and trend, whereas some other series report low volume of attended incidents and entropy, making them more volatile and difficult to forecast. At the level on nature of incidents combined with categories of other levels, there are many series that contain zeros with low counts. As such, the data set represents a diverse set of daily time series patterns.
